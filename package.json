@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/Snickdx/flask-template#readme",
   "dependencies": {
+    "@angular/animations": "^15.2.6",
+    "@angular/cdk": "^15.2.6",
+    "@angular/material": "^15.2.6",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
     "puppeteer-core": "^17.1.3"

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block title %}Workout Remixer{% endblock %}
+{% block page %}Workout Remixer{% endblock %}
+
+{{ super() }}
+
+{% block content %}
+
+
+ 
+    <div class="col-sm-4 mb-3 mb-sm-0">
+      <div class="card" style="width: 18rem;">
+        <img src="https://img.freepik.com/free-photo/athletic-man-woman-with-dumbbells_155003-11801.jpg?w=1060&t=st=1680982700~exp=1680983300~hmac=24909fb5409da878c173664f9a0fb11ac48a372ccef8af30c3550a56952d41aa" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Workout 1</h5>
+          <p class="card-text">This workout is randomly generated for you</p>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>       
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://img.freepik.com/free-photo/athletic-man-woman-with-dumbbells_155003-11801.jpg?w=1060&t=st=1680982700~exp=1680983300~hmac=24909fb5409da878c173664f9a0fb11ac48a372ccef8af30c3550a56952d41aa" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Workout 2</h5>
+          <p class="card-text">This workout is randomly generated for you</p>
+          <button type="button" class="btn btn-danger">Add</button>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>     
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="https://img.freepik.com/free-photo/athletic-man-woman-with-dumbbells_155003-11801.jpg?w=1060&t=st=1680982700~exp=1680983300~hmac=24909fb5409da878c173664f9a0fb11ac48a372ccef8af30c3550a56952d41aa" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Workout 3</h5>
+        <p class="card-text">This workout is randomly generated for you.</p>
+        <button type="button" class="btn btn-danger">Add</button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>     
+      </div>
+    </div>
+</div> 
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true", style="background: transparent;">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Workout details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

@@ -1,10 +1,143 @@
-{% extends "layout.html" %}
-{% block title %}Flask MVC App{% endblock %}
-{% block page %}Flask MVC App{% endblock %}
-
+{% extends "myworkouts.html" %}
+{% block title %}Workout Remixer{% endblock %}
+{% block page %}Workout Remixer{% endblock %}
 {{ super() }}
 
 {% block content %}
-    <h1>Flask MVC</h1>
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+    
+
+  <div class="col-sm-4 mb-3 mb-sm-0">
+    <div class="card" style="width: 18rem;">
+      <img src="http://d205bpvrqc9yn1.cloudfront.net/1714.gif" class="card-img-top" alt="...">
+       <div class="divider" style="background-color: red;"></div>
+      <div class="card-body">
+        <!-- <h5 class="card-title">Exercise</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-danger">Add</button>  -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="http://d205bpvrqc9yn1.cloudfront.net/0240.gif" class="card-img-top" alt="...">
+      <div class="divider" style="background-color: red;"></div>
+      <div class="card-body">
+        <!-- <h5 class="card-title">Exercise</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-danger">Add</button>  -->
+      </div>
+    </div>
+</div>
+<div class="col-sm-4">
+  <div class="card" style="width: 18rem;">
+    <img src="http://d205bpvrqc9yn1.cloudfront.net/1645.gif" class="card-img-top" alt="...">
+    <div class="divider" style="background-color: red;"></div>
+    <div class="card-body">
+      <!-- <h5 class="card-title">Exercise</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <button type="button" class="btn btn-danger">Add</button>  -->
+    </div>
+  </div>
+</div>
+
+
+
 {% endblock %}
+
+
+{% block content1 %}
+
+<!-- 
+  <div class="">
+    <div class="card" style="width: 18rem;">
+      <img src="https://img.freepik.com/free-photo/athletic-man-woman-with-dumbbells_155003-11801.jpg?w=1060&t=st=1680982700~exp=1680983300~hmac=24909fb5409da878c173664f9a0fb11ac48a372ccef8af30c3550a56952d41aa" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Workout</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>   
+        <button type="button" class="btn btn-danger">Remove</button>     
+      </div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div class="card" style="width: 18rem;">
+      <img src="https://img.freepik.com/free-photo/athletic-man-woman-with-dumbbells_155003-11801.jpg?w=1060&t=st=1680982700~exp=1680983300~hmac=24909fb5409da878c173664f9a0fb11ac48a372ccef8af30c3550a56952d41aa" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Workout</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button> 
+        <button type="button" class="btn btn-danger">Remove</button>     
+      </div>
+    </div>
+</div>
+<div class="">
+  <div class="card" style="width: 18rem;">
+    <img src="https://img.freepik.com/free-photo/athletic-man-woman-with-dumbbells_155003-11801.jpg?w=1060&t=st=1680982700~exp=1680983300~hmac=24909fb5409da878c173664f9a0fb11ac48a372ccef8af30c3550a56952d41aa" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Workout</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button> 
+      <button type="button" class="btn btn-danger">Remove</button>     
+    </div>
+  </div>
+</div> -->
+
+{% for work in workout %}
+<div class="">
+<div class="card" style="width: 18rem;">
+  <img src="https://img.freepik.com/free-photo/athletic-man-woman-with-dumbbells_155003-11801.jpg?w=1060&t=st=1680982700~exp=1680983300~hmac=24909fb5409da878c173664f9a0fb11ac48a372ccef8af30c3550a56952d41aa" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{work.name}}</h5>
+      <p class="card-text">This workout is yours</p>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{work.id}}">View</button><br>
+       <form style="margin-top: 10px;" action="/WorkoutRemove/{{work.id}}" method="POST">
+       <button class="red btn waves-effect waves-light" type="submit">Remove</button>
+      </form>
+             
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModal{{work.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true", style="background: transparent;">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Workout details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% for ex in work.exercises %}
+        <div class="row">
+          <form action="/ExerciseRemove/{{ex.id}}" method = "POST"> 
+              <label for="exercise" class="form-label mr-2">Exercise: {{ex.name}} Sets: {{ex.sets}} Reps: {{ex.reps}}</label>
+              <button class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></button>
+          </form>
+        </div>
+        
+        {% endfor %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+

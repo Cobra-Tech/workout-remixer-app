@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
   <head>
-
-    <script src="/static/suggest.js"></script>
+  
+    <script src="/static/myworkout.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -116,7 +116,18 @@
       color: white;
 
     }
+
     
+
+    
+
+    .card {
+      flex: 0 0 auto; 
+      width: 200px; 
+      padding: 10px;
+      margin-right: 10px; 
+      background-color: #f8f8f8;
+    }
 
    </style>
 
@@ -189,48 +200,104 @@
   
    <div class="divider"></div>
 
-    <!----------------------------- suggestion section --------------------------------------------------------------->
+   <!----------------------------- search section --------------------------------------------------------------->
+          
+   <section id="suggestions" class = "center suggestions view">
+    <br>
+    <div class ="highlights">
+      <row style="display: flex; justify-content: center; align-items: center;">
+      <div class="col-sm-3">
+      <h1 style="color: white;"><b style="color:red">S</b>earch <b style="color:red">E</b>xercises</h1><br>
+      </div>
+      <div class="col-sm-3">  
+        <form class="d-flex" role="search" id="workoutsearch" style="background:transparent">
+          <div class="col-sm-6">  
+          <input id="searchInput" class="form-control me-2" type="search" placeholder="Enter exercise" aria-label="Search", style="color: white;">
+          </div>
+          <button id="searchButton" class="btn btn-outline-danger" type="submit">Search</button>
+        </form>
+      </div>
+      </row>
+    </div>
+   
+   <div container="workoutcontent" style="display: flex; justify-content: center; align-items: center; white-space: nowrap;" >
+    <div class="row" id= "abs">
+    {% block content %}
+    
+    {% endblock %}
+    </div>
+  </div>
+
+  <br>
+
+
+  </section>
+  
+  <!----------------------------- search section ------------------------------------------------------------->
+
+
+  <div class="divider"></div>
+
+
+  <!----------------------------- suggestion section --------------------------------------------------------------->
           
     <section id="suggestions" class = "center suggestions view">
       <br>
       <div class ="highlights">
-        <h1 style="color: white;"><b style="color: red;">S</b>uggestions</h1><br>
+        <h1 style="color: white;"><b style="color:red">My</b>Workouts</h1><br>
       </div>
      
-     <div container="workoutcontent" style="display: flex; justify-content: center; align-items: center;">
-      <div class="row" id="abs" >
-      <!-- {% block content %}
+     <div container="workoutcontent" style="display: flex; justify-content: center; align-items: center; overflow-x: auto;">
     
-      {% endblock %} -->
+      {% block content1 %}
+      
+      
+      {% endblock %}
 
 
-    </div>
-    
-    </div>
-    
-    <br>
-    
-    <ul class="pagination justify-content-center">
-      <li id = "generate" class="page-item"><a class="page-link" href="#abs">Generate</a></li>
-      <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
-    </ul>  
-    
-    <div class="container" id="abs1" >
       
 
+  </div>
 
-    </div>
+    <br>
+    
+    <!-- <ul class="pagination justify-content-center">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>   -->
+
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true", style="background: transparent;">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Workout details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
   
+    {% block content2 %}
+
+
+    {% endblock %}
      
     </section>
     
     <!----------------------------- suggestion section --------------------------------------------------------------->
 
-
     <div class="divider"></div>
+  
+   
 
    <!----------------------------- copyright section --------------------------------------------------------------->
 
