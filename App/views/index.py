@@ -13,7 +13,7 @@ def init():
     try:
         db.drop_all()
         db.create_all()
-        create_user('bob', 'bobpass')
+        create_user('bob', 'bobpass', 'bob@mail.com')
         return jsonify(message='db initialized!')
     except Exception as e:
         return jsonify({'success': False, 'message': f'Error initializing application: {str(e)}'})
