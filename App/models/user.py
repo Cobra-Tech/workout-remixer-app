@@ -66,11 +66,13 @@ class User(db.Model, UserMixin):
 
     def addEx(self, workoutname, exname):
       work = Workout.query.filter_by(name=workoutname,user_id=self.id).first()
-      ex = Exercise(exname,random.randint(1, 4),random.randint(1, 15))
-      ex.workout_id = work.id
-      db.session.add(ex)
-      db.session.commit()
-      return True
+      if work:
+        ex = Exercise(exname,random.randint(1, 4),random.randint(1, 15))
+        ex.workout_id = work.id
+        db.session.add(ex)
+        db.session.commit()
+        return True
+      return False
 
     def createWork(self, workoutname, exname):
       work = Workout(workoutname)
@@ -86,7 +88,7 @@ class User(db.Model, UserMixin):
 class Workout(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    name = db.Column(db.String, nullable=False, unique=True)
+    name = db.Column(db.String, nullable=False, unique=False)
     exercises = db.relationship('Exercise', backref='workout',  lazy=True, cascade="all, delete-orphan" )
     
     def __init__(self, name):
