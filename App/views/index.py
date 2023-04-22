@@ -10,10 +10,13 @@ def index_page():
 
 @index_views.route('/init', methods=['GET'])
 def init():
-    db.drop_all()
-    db.create_all()
-    create_user('bob', 'bobpass')
-    return jsonify(message='db initialized!')
+    try:
+        db.drop_all()
+        db.create_all()
+        create_user('bob', 'bobpass')
+        return jsonify(message='db initialized!')
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Error initializing application: {str(e)}'})
 
 @index_views.route('/health', methods=['GET'])
 def health_check():
